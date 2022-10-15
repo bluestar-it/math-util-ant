@@ -21,22 +21,34 @@ public class MathUtil {
 //    0! = 1!
 //    21! vuot 18 chu so => tran kieu long
 //    khong tinh 21! tro len
+//    public static long getFactorial(int n) {
+//        if (n < 0 || n > 20) {
+//            throw new IllegalArgumentException("Invalid n, n must be between 0 - 20");
+//        }
+//
+//        if (n == 0 || n == 1) {
+//            return 1;
+//        }
+//
+//        // đến được đây n >= 2
+//        //không xài else khi đã có return
+//        long product = 1; //biến cộng dồn (ACC - accumulation)
+//        for (int i = 2; i <= n; i++) {
+//            product *= i;
+//        }
+//        return product;
+//    }
+    //Sửa hàm tính giai thừa = đệ quy
+//    đệ quy : gọi lại chính mình với 1 quy mô khác
     public static long getFactorial(int n) {
         if (n < 0 || n > 20) {
             throw new IllegalArgumentException("Invalid n, n must be between 0 - 20");
         }
-
-        if (n == 0 || n == 1) {
+        if(n==0 || n==1){
             return 1;
         }
 
-        // đến được đây n >= 2
-        //không xài else khi đã có return
-        long product = 1; //biến cộng dồn (ACC - accumulation)
-        for (int i = 2; i <= n; i++) {
-            product *= i;
-        }
-        return product;
+        return n * getFactorial(n - 1);
     }
 //                                                    (DRIVEN)              (TEST)
 //    TDD - TEST DRIVEN DEVELOPMENT => VIET CODE CO Y THUC VIET LUON PHAN KIEM THU
